@@ -1,0 +1,903 @@
+body {
+    margin: 0 2em;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 280;
+    height: auto;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    margin: 0;
+    padding: 1.5em 0;
+}
+
+#nav-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 1.25em;
+}
+
+#nav-items li a:hover {
+    color: #B45AD3;
+    font-style: italic;
+    cursor: pointer;
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    color: white;
+    background: #B45AD3;
+}
+
+::selection {
+    color: white;
+    background: #B45AD3;
+}
+
+#selected {
+    color: #B45AD3;
+}
+
+#my-name {
+    font-size: 1.5em;
+}
+
+ul {
+    list-style: none;
+}
+
+#page-contents {
+    display: grid;
+    grid-template-columns: 72% 28%;
+    margin-top: 1.25em;
+}
+
+#personal-descr-mobile {
+    display: none;
+}
+
+.work-card {
+    display: grid;
+    grid-template-columns: 1.25fr 2fr 0.6fr;
+}
+
+.info-col {
+    margin: 0 6em 0 3em;
+}
+
+.info-col h1 {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 2em;
+    margin: 0.15em 0 0 0;
+}
+
+.info-col h1 a:hover {
+    color: #B45AD3;
+    font-style: italic;
+    cursor: pointer;
+
+}
+
+.info-col p {
+    font-size: 1.15em;
+}
+
+.what-when-col {
+    font-family: "Newsreader", serif;
+    font-weight: 425;
+    font-size: 1.15em;
+}
+
+.what-when-col p {
+    margin: 0;
+    margin-top: 0.15em;
+}
+
+.what-when-col p br {
+    content: "";
+    margin: 2em;
+    display: block;
+    font-size: 24%;
+}
+
+svg {
+    display: block;
+    align-content: start;
+}
+
+.arrow-svg {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.arrow-svg:hover {
+    fill: #B45AD3;
+    cursor: pointer;
+}
+
+hr {
+    width: 100%;
+    text-align: left;
+    margin: 1em 0;
+}
+
+#personal-descr {
+    position: sticky;
+    height: 25%;
+    top: 4em;
+    margin-left: 3em;
+}
+
+#personal-descr h1,
+#personal-descr-mobile h1 {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 2em;
+}
+
+#personal-descr p,
+#personal-descr-mobile p {
+    margin-right: 0;
+}
+
+.bio {
+    font-size: 1.15em;
+    margin-bottom: 2em;
+}
+
+.learn-more {
+    font-family: "Newsreader", serif;
+    font-size: 1.35em;
+}
+
+.learn-more p {
+    margin-bottom: 0em;
+}
+
+.learn-more a:hover {
+    color: #B45AD3;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.contact-icons {
+    display: flex;
+    font-size: 1.5em;
+    margin-bottom: 3em;
+}
+
+#linkedIn {
+    padding-right: 0.75em;
+}
+
+#linkedIn:hover {
+    color: #B45AD3;
+    cursor: pointer;
+}
+
+#envelope:hover {
+    color: #B45AD3;
+    cursor: pointer;
+}
+
+#page-contents:last-child {
+    margin-bottom: 3em;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+input {
+    display: none;
+}
+
+/*About*/
+
+#pic-bio {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+}
+
+#me-img {
+    display: block;
+    margin: auto;
+    width: 60%;
+}
+
+#bio {
+    margin-top: 1em;
+    margin-right: 6em;
+}
+
+
+#pic-bio h1 {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 1.75em;
+    line-height: 2;
+}
+
+#pic-bio h2 {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: 1.25em;
+    line-height: 1.25;
+}
+
+#pic-bio p {
+    font-size: 1.15em;
+}
+
+* {
+    box-sizing: border-box
+}
+
+/* Slideshow styling from W3 schools*/
+/* Slideshow container */
+.slideshow-container {
+    max-width: 80%;
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides,
+.mySlides2,
+.mySlides1,
+.mySlide3 {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.slide-img {
+    width: 100%;
+}
+
+#proj-overview {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    margin-top: 4em;
+}
+
+#proj-desc a {
+    text-decoration-line: underline;
+}
+
+#proj-desc a:hover {
+    color: #B45AD3;
+    font-style: italic;
+    cursor: pointer;
+}
+
+#proj-title {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 2.25em;
+    margin: 0;
+    padding-bottom: 0.5em;
+}
+
+#proj-title-info h2 {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: 1.75em;
+    margin: 0;
+}
+
+#proj-title-info p {
+    margin: 0;
+}
+
+#proj-page p {
+    padding-bottom: 1em;
+}
+
+#proj-page p {
+    font-size: 1.25em;
+    margin: 0;
+}
+
+#top-hr {
+    margin-bottom: 10em;
+}
+
+#center-img {
+    display: block;
+    margin: auto;
+    width: 45%;
+}
+
+.center-img-gc {
+    display: block;
+    margin: auto;
+    margin-top: 12em;
+    width: 60%;
+}
+
+.two-img {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.mid-two-img {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin-top: 15em;
+    gap: 1em;
+}
+
+#middle-pg-two {
+    margin-top: 15em;
+}
+
+.two-img img {
+    width: 90%;
+}
+
+figcaption {
+    font-weight: 200;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.section-title {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 2.25em;
+    line-height: 1.25;
+    margin-top: 0;
+}
+
+.copy-content {
+    display: grid;
+    grid-template-columns: 40% 10% 50%;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 12em;
+}
+
+.content-copy {
+    display: grid;
+    grid-template-columns: 50% 10% 40%;
+    justify-content: center;
+    margin-top: 15em;
+}
+
+#dog-copy-content {
+    display: grid;
+    grid-template-columns: 40% 10% 50%;
+    justify-content: center;
+    margin-top: 12em;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+#middle-slide {
+    max-width: 70%;
+    margin-top: 15em;
+    margin-bottom: 15em;
+}
+
+#end-slide {
+    max-width: 70%;
+    margin-top: 15em;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-top: 15em;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+#footer-hr {
+    margin-top: 10em;
+    margin-bottom: 5em;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 12% 8% 64% 8% 8%;
+    margin-bottom: 3em;
+}
+
+#footer-name {
+    padding-bottom: 0.5em;
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 2.25em;
+    margin: 0;
+}
+
+#next-button,
+#prev-button {
+    justify-self: end;
+}
+
+footer ul {
+    margin: 0;
+}
+
+footer h2 {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 1.35em;
+}
+
+footer h2:hover {
+    color: #B45AD3;
+    font-style: italic;
+    cursor: pointer;
+}
+
+footer li {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 1.35em;
+    padding-bottom: 0.25em;
+}
+
+footer li a:hover {
+    color: #B45AD3;
+    font-style: italic;
+    cursor: pointer;
+}
+
+#disclaimer {
+    font-family: "Newsreader", serif;
+    text-align: center;
+    line-height: 1.25;
+}
+
+@media screen and (max-width: 1100px) {
+    #page-contents {
+        display: inline;
+    }
+
+    #personal-descr {
+        display: none;
+    }
+
+    #personal-descr-mobile {
+        display: inline;
+    }
+
+    .contact-icons {
+        margin-bottom: 2.5em;
+    }
+
+    .info-col {
+        margin: 0 3em;
+    }
+
+    .info-col h1 {
+        font-size: 1.75em;
+    }
+
+    .work-card {
+        grid-template-columns: 1.25fr 1.9fr 0.7fr;
+    }
+
+    #bio {
+        margin: 0;
+    }
+
+    #bio h1 {
+        margin-top: 0;
+    }
+
+    #bio h2 {
+        font-size: 1.15em;
+    }
+
+    #bio p {
+        font-size: 1.05em;
+    }
+
+    #me-img {
+        width: 88%;
+        align-self: center;
+        justify-self: center;
+    }
+
+    #proj-page p {
+        font-size: 1.15em;
+    }
+
+    #center-img {
+        width: 100%;
+        margin-bottom: 15em;
+    }
+
+    .copy-content {
+        display: block;
+    }
+
+    .copy-content .slideshow-container {
+        margin-top: 3em;
+    }
+
+    #content-desc {
+        margin-bottom: 3em;
+    }
+
+    .content-copy {
+        display: block;
+    }
+
+    .content-copy h1 {
+        margin-top: 2em;
+    }
+
+    #middle-slide,
+    #end-slide {
+        max-width: 90%;
+    }
+
+    figcaption {
+        font-size: 1.25em;
+    }
+
+    #middle-pg-two {
+        margin-top: 8em;
+    }
+
+    #dog-copy-content {
+        display: block;
+    }
+
+    .center-img-gc {
+        width: 100%;
+    }
+
+    #footer-hr {
+        margin-bottom: 3em;
+    }
+
+    footer {
+        grid-template-columns: 20% 8% 54% 10% 8%;
+        margin-bottom: 3em;
+    }
+
+    #footer-name {
+        font-size: 1.75em;
+    }
+
+    footer li {
+        font-size: 1.2em;
+    }
+
+    footer h2 {
+        font-size: 1.15em;
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+    #personal-descr-mobile h1 {
+        font-size: 1.75em;
+    }
+
+    .bio {
+        font-size: 1.1em;
+    }
+
+    .info-col h1 {
+        font-size: 1.5em;
+    }
+
+    .info-col p {
+        font-size: 1em;
+    }
+
+    .what-when-col p {
+        font-size: 0.9em;
+    }
+
+    #pic-bio {
+        display: inline;
+    }
+
+    #me-img {
+        width: 50%;
+        margin-bottom: 2em;
+    }
+
+    #pic-bio #contact-icons {
+        margin-bottom: 3em;
+    }
+
+    #proj-overview {
+        display: block;
+    }
+
+     footer {
+        grid-template-columns: 24% 8% 42% 14% 12%;
+        margin-bottom: 3em;
+    }
+
+    #footer-name {
+        font-size: 1.65em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .work-card {
+        display: inline;
+    }
+
+    .info-col {
+        margin: 0;
+    }
+
+    #me-img {
+        width: 70%;
+    }
+
+    #proj-title {
+        font-size: 1.85em;
+    }
+
+    #proj-title-info h2 {
+        font-size: 1.35em;
+    }
+
+    #proj-desc p{
+        font-size: 1.05em;
+    }
+
+    #center-img {
+        margin-bottom: 9em;
+    }
+
+    .section-title {
+        font-size: 1.85em;
+    }
+
+    #proj-page p{
+        font-size: 1.05em;
+    }
+
+    .content-copy {
+        margin-top: 10em;
+    }
+
+    .copy-content {
+        margin-top: 10em;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    #middle-slide {
+        margin-top: 10em;
+        margin-bottom: 10em;
+    }
+
+    .two-img {
+        display: block;
+    }
+
+    .two-img figure {
+        margin-bottom: 2em;
+    }
+
+    .center-img-gc {
+        margin-top: 8em;
+    }
+
+    #end-slide {
+        margin-top: 10em;
+    }
+
+    footer {
+        grid-template-columns: 24% 8% 26% 24% 18%;
+        margin-bottom: 3em;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #nav-items {
+        font-size: 1.15em;
+    }
+
+    #personal-descr-mobile h1 {
+        font-size: 1.5em;
+    }
+
+    #pic-bio h1 {
+        font-size: 1.5em;
+    }
+
+    #proj-page h1 {
+        font-size: 1.65em;
+    }
+
+    footer {
+        display: block;
+    }
+
+    footer ul {
+        padding: 0;
+        margin-top: 1em;
+    }
+
+    #next-button, #prev-button {
+        justify-self: left;
+    }
+
+    #disclaimer {
+        text-align: left;
+    }
+}
